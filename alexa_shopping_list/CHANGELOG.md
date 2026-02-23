@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 <!-- RELEASE START -->
-## [2602.054.03] - 2026-02-23
+## [2602.054.22] - 2026-02-23
+
+### Bug Fixes
+- **Binary Sensor State Updates** — The `binary_sensor` now actively pulls the cached authentication state directly from the server during each polling cycle, ensuring it accurately reflects connection status without triggering unnecessary browser sessions.
+
+## [2602.054.04] - 2026-02-23
+
+### Bug Fixes
+- **Accurate Client Status** — The `status` command in `client.py` now forces a live check by bypassing the 24-hour cache and actively detecting Amazon session "soft-expiries," ensuring it never falsely reports being authenticated.
 
 ### Features
 - **Client Status Command** — Added a `status` command to `client.py` to easily check if the backend server is currently authenticated with Amazon without needing to trigger a sync.
