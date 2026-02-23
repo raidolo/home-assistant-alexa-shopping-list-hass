@@ -1,5 +1,5 @@
 name: Alexa Shopping List Sync
-version: '2602.054.23'
+version: '2602.054.24'
 slug: alexa_shopping_list
 description: Alexa Shopping List synchronisation server
 url: "https://github.com/raidolo/home-assistant-alexa-shopping-list"
