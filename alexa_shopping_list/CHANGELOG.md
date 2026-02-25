@@ -3,8 +3,8 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
-<!-- RELEASE START -->
-## [2602.056.02] - 2026-02-25
+
+## [2602.056.03] - 2026-02-25
 
 ### Features
 - **Manual Sync Logging** — The custom component now logs an info-level message in Home Assistant when a manual sync action is triggered.
@@ -52,7 +52,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Improvements
 - **Added diagnostic logging on Selenium timeout** — Captures screenshot, current URL, and page source snippet when `TimeoutException` occurs
-<!-- RELEASE END -->
+
 
 ## [2602.050.01] - 2026-02-19
 
@@ -85,7 +85,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - **Tag-based releases** — Workflow only triggers on version tags, not every push to main
 - **Updated Docker Hub and addon repo references**
 - **Added `workflow_dispatch` trigger** — Allows manual workflow runs from GitHub UI
-<!-- RELEASE END -->
+
 
 ## [2602.050.00] - 2026-02-19
 
