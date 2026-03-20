@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 
+## [2603.079.02] - 2026-03-20
+
+### Features
+- **Dev Channel** — Added a dedicated Dev Add-on testing channel to allow side-by-side installation of experimental builds.
+
+### Bug Fixes
+- **Chromium crash in Docker** — Fixed "tab crashed" and "session not created" errors by reverting the Docker container to `alpine:3.20` (guaranteeing stable Chromium 131) and replacing `driver.refresh()` with `driver.get()` to bypass Headless Chrome renderer bugs.
+- **Zombie processes** — Fixed an issue where defunct Chromium processes would accumulate over time when running the server. Added `tini -s` as an init manager for Docker to reap children under s6-overlay, and ensured the WebDriver cleans up via `.quit()` instead of `.close()`.
+
 ## [2602.056.03] - 2026-02-25
 
 ### Features
@@ -13,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Bug Fixes
 - **Client Empty Command Crash** — Fixed an `IndexError` in `client.py` that occurred when pressing Enter without typing any command in the console.
+- **Selenium Logging on Windows** — Fixed excessive console logging from the Selenium WebDriver on Windows by setting the log level to 3.
 
 ## [2602.055.00] - 2026-02-24
 
