@@ -1,13 +1,22 @@
 name: Alexa Shopping List Sync
 version: '2603.079.09'
 slug: alexa_shopping_list
-description: Alexa Shopping List synchronisation server
+description: Alexa Shopping List synchronisation server. Changing debug options requires addon restart.
 url: "https://github.com/raidolo/home-assistant-alexa-shopping-list"
 arch:
   - aarch64
   - amd64
 image: "raidolo/ha-alexa-shopping-list-sync"
 startup: "services"
+options:
+  ALEXA_SHOPPING_LIST_DEBUG: false
+  ALEXA_SHOPPING_LIST_DEBUG_LOG_PATH: /config/alexa_shopping_list/debug.log
+schema:
+  ALEXA_SHOPPING_LIST_DEBUG: bool
+  ALEXA_SHOPPING_LIST_DEBUG_LOG_PATH: str
+environment:
+  ALEXA_SHOPPING_LIST_DEBUG: "{{ .ALEXA_SHOPPING_LIST_DEBUG }}"
+  ALEXA_SHOPPING_LIST_DEBUG_LOG_PATH: "{{ .ALEXA_SHOPPING_LIST_DEBUG_LOG_PATH }}"
 ports:
   4000/tcp: 4000
 map:
