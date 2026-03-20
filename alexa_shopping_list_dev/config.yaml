@@ -1,0 +1,16 @@
+name: Alexa Shopping List Sync (Dev)
+version: '2602.056.00'
+slug: alexa_shopping_list_dev
+description: Alexa Shopping List synchronisation server
+url: "https://github.com/raidolo/home-assistant-alexa-shopping-list"
+arch:
+  - aarch64
+  - amd64
+image: "raidolo/ha-alexa-shopping-list-sync:dev"
+startup: "services"
+ports:
+  4000/tcp: 4000
+map:
+  - type: addon_config
+    read_only: false
+    path: /config
