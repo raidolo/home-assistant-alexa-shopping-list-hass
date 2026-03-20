@@ -10,7 +10,7 @@ image: "raidolo/ha-alexa-shopping-list-sync"
 startup: "services"
 options:
   ALEXA_SHOPPING_LIST_DEBUG: false
-  ALEXA_SHOPPING_LIST_DEBUG_LOG_PATH: /config/alexa_shopping_list/debug.log
+  ALEXA_SHOPPING_LIST_DEBUG_LOG_PATH: /config/debug.log
 schema:
   ALEXA_SHOPPING_LIST_DEBUG: bool
   ALEXA_SHOPPING_LIST_DEBUG_LOG_PATH: str
