@@ -3,15 +3,42 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
-<!-- RELEASE START -->
-## [2602.056.00] - 2026-02-25
+
+## [2603.079.10] - 2026-03-21
 
 ### Features
+- **Configurable Chromium debug logging** — Added support for enabling Selenium/Chromium verbose logs and configuring the output path.
+
+### Bug Fixes
+- **Add-on env placeholder fallback** — When add-on environment placeholders are not rendered (e.g. literal `{{ ... }}` values), the server now falls back to reading options from `/data/options.json` to correctly resolve debug settings.
+
+### Maintenance
+- **Local workspace metadata ignored** — Added `.kilocode/` and `.agent/` to `.gitignore` to prevent accidental commits of local tooling metadata.
+
+## [2603.079.09] - 2026-03-20
+
+### Improvements
+- **ChromeDriver Debugging** — Disabled verbose debugging in ChromeDriver as a follow-up to the zombie processes fix. This will be introduced as an optional configuration flag in the Add-on in a future update.
+
+## [2603.079.02] - 2026-03-20
+
+### Features
+- **Dev Channel** — Added a dedicated Dev Add-on testing channel to allow side-by-side installation of experimental builds.
+
+### Bug Fixes
+- **Chromium crash in Docker** — Fixed "tab crashed" and "session not created" errors by reverting the Docker container to `alpine:3.20` (guaranteeing stable Chromium 131) and replacing `driver.refresh()` with `driver.get()` to bypass Headless Chrome renderer bugs.
+- **Zombie processes** — Fixed an issue where defunct Chromium processes would accumulate over time when running the server. Added `tini -s` as an init manager for Docker to reap children under s6-overlay, and ensured the WebDriver cleans up via `.quit()` instead of `.close()`.
+
+## [2602.056.03] - 2026-02-25
+
+### Features
+- **Manual Sync Logging** — The custom component now logs an info-level message in Home Assistant when a manual sync action is triggered.
 - **Server Logging Improvements** — Added a custom logging format to `server.py` and `alexa.py` to include timestamps in all log lines.
 - **Server Startup Banner** — Added a clearer startup log line to distinguish server restarts in the logs.
 
 ### Bug Fixes
 - **Client Empty Command Crash** — Fixed an `IndexError` in `client.py` that occurred when pressing Enter without typing any command in the console.
+- **Selenium Logging on Windows** — Fixed excessive console logging from the Selenium WebDriver on Windows by setting the log level to 3.
 
 ## [2602.055.00] - 2026-02-24
 
@@ -51,7 +78,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Improvements
 - **Added diagnostic logging on Selenium timeout** — Captures screenshot, current URL, and page source snippet when `TimeoutException` occurs
-<!-- RELEASE END -->
+
 
 ## [2602.050.01] - 2026-02-19
 
@@ -84,7 +111,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - **Tag-based releases** — Workflow only triggers on version tags, not every push to main
 - **Updated Docker Hub and addon repo references**
 - **Added `workflow_dispatch` trigger** — Allows manual workflow runs from GitHub UI
-<!-- RELEASE END -->
+
 
 ## [2602.050.00] - 2026-02-19
 
