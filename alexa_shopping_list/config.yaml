@@ -1,5 +1,5 @@
 name: Alexa Shopping List Sync
-version: '2603.090.03'
+version: '2605.128.00'
 slug: alexa_shopping_list
 description: Alexa Shopping List synchronisation server. Changing debug options requires addon restart.
 url: "https://github.com/raidolo/home-assistant-alexa-shopping-list"
